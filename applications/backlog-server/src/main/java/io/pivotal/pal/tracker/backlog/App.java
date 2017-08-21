@@ -12,6 +12,7 @@ import java.util.TimeZone;
 
 @EnableEurekaClient
 @SpringBootApplication
+@org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker
 @ComponentScan({"io.pivotal.pal.tracker.backlog", "io.pivotal.pal.tracker.restsupport"})
 public class App {
 
