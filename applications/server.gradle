@@ -1,8 +1,10 @@
 apply plugin: "org.springframework.boot"
+apply plugin: "io.spring.dependency-management"
 
 dependencies {
     compile project(":components:rest-support")
-
+    compile "org.springframework.boot:spring-boot-starter-actuator"
+    compile "io.pivotal.spring.cloud:spring-cloud-services-starter-service-registry"
     compile "org.springframework.boot:spring-boot-starter-web"
 
     compile "com.zaxxer:HikariCP:2.3.7"
@@ -10,4 +12,13 @@ dependencies {
     compile "ch.qos.logback:logback-classic:1.1.11"
 
     testCompile project(":components:test-support")
+}
+
+
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:$springCloudDependenciesVersion"
+        mavenBom "io.pivotal.spring.cloud:spring-cloud-services-dependencies:$springCloudServicesVersion"
+    }
 }
