@@ -7,12 +7,17 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.client.RestOperations;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 
 import java.util.TimeZone;
 
+@EnableWebSecurity
+@EnableResourceServer
 @EnableEurekaClient
 @SpringBootApplication
-@org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker
+@EnableCircuitBreaker
 @ComponentScan({"io.pivotal.pal.tracker.backlog", "io.pivotal.pal.tracker.restsupport"})
 public class App {
 
