@@ -4,14 +4,15 @@ applications:
   host: registration-pal-rakhu
   memory: 1G
   instances: 1
+  env:
+    TRUST_CERTS: api.sys.turtle.pal.pivotal.io,uaa.sys.turtle.pal.pivotal.io
+    GRANT_TYPE: client_credentials
+    SECURITY_USER_NAME: actuator
+    SECURITY_USER_PASSWORD: operations4red
+
   services:
   - tracker-registration-database
   - tracker-service-registry
   - tracker-circuit-breaker-dashboard
   - tracker-amqp
   - tracker-sso
-   env:
-      TRUST_CERTS: api.sys.turtle.pal.pivotal.io,uaa.sys.turtle.pal.pivotal.io
-      GRANT_TYPE: client_credentials
-      SECURITY_USER_NAME: actuator
-      SECURITY_USER_PASSWORD: operations4red
